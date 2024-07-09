@@ -66,5 +66,5 @@
             <asp:CommandField HeaderText="Acción:" ShowSelectButton="true" SelectText="✍" ItemStyle-HorizontalAlign="Center" />
         </columns>
     </asp:GridView>
-    <a href="FormularioArticulo.aspx" class="btn btn-primary">Agregar</a>
+    <a href="FormularioArticulos.aspx" class="btn btn-primary">Agregar</a>
 </asp:Content>

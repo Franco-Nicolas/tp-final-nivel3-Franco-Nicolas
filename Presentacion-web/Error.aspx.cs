@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Presentacion_web
 {
-    public partial class FormularioArticulo : System.Web.UI.Page
+    public partial class Error : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

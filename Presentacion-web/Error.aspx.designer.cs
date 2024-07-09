@@ -10,7 +10,7 @@
 
 namespace Presentacion_web
 {
-    public partial class FormularioArticulo
+    public partial class Error
     {
     }
 }
