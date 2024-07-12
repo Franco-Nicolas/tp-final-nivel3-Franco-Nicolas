@@ -72,7 +72,6 @@
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Favoritos.aspx" />
-    <Content Include="FormularioArticulo.aspx" />
     <Content Include="FormularioArticulos.aspx" />
     <Content Include="Global.asax" />
     <Content Include="MiPerfil.aspx" />
@@ -113,13 +112,6 @@
     </Compile>
     <Compile Include="Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FormularioArticulo.aspx.cs">
-      <DependentUpon>FormularioArticulo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FormularioArticulo.aspx.designer.cs">
-      <DependentUpon>FormularioArticulo.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioArticulos.aspx.cs">
       <DependentUpon>FormularioArticulos.aspx</DependentUpon>
