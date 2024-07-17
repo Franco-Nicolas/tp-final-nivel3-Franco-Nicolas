@@ -30,7 +30,23 @@
             border-radius: 50px;
             width: 120px;
         }
+
+        .btn-close {
+            padding: .7em .5em;
+        }
     </style>
+    <asp:ScriptManager runat="server" />
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="d-flex">
+                <asp:TextBox ID="txtBuscar" placeholder="Buscar..." CssClass="form-control" runat="server" />
+                <div class="btn-group">
+                    <asp:Button ID="btnLimpiar" runat="server" Text="" CssClass="btn btn-close" OnClick="btnLimpiar_Click" />
+                    <asp:Button ID="btnBuscar" runat="server" Text="🔎" CssClass="btn btn-outline-dark" OnClick="btnBuscar_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
         <asp:Repeater ID="repRepetidor" runat="server">
             <ItemTemplate>
