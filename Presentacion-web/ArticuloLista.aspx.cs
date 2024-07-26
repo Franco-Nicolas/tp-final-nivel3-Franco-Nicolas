@@ -14,6 +14,12 @@ namespace Presentacion_web
         public bool FiltroAvanzado { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["usuario"]))
+            {
+                Session.Add("error", "Se requieren permisos de Administrador para acceder.");
+                Response.Redirect("Error.aspx");
+            }
+
             FiltroAvanzado = chkFiltroAvanzado.Checked;
             if (!IsPostBack || !chkFiltroAvanzado.Checked)
             {
