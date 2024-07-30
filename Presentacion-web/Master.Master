@@ -50,7 +50,7 @@
                         <asp:Button Text="Salir" ID="btnSalir" CssClass="btn btn-outline-primary me-2" OnClick="btnSalir_Click" runat="server" />
                     <%}%>
                     
-                    <asp:Image ID="imgAvatar" Style="height: 40px; width: 40px; border-radius: 50%;" runat="server" />
+                    <asp:Image ID="imgAvatar" Style="height: 40px; width: 40px; object-fit: contain; border-radius: 50%;" runat="server" />
                 </div>
             </div>
         </nav>
