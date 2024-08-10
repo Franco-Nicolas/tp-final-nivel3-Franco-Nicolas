@@ -15,7 +15,7 @@ namespace Presentacion_web
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Enabled = false;
-            
+
             try
             {
                 if (!IsPostBack)
@@ -69,6 +69,10 @@ namespace Presentacion_web
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+
                 Articulo nuevo = new Articulo();
                 ArticuloNegocio negocio = new ArticuloNegocio();
 

@@ -20,6 +20,10 @@ namespace Presentacion_web
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+
                 Usuario user = new Usuario();
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 EmailService email = new EmailService();
@@ -30,7 +34,7 @@ namespace Presentacion_web
                 Session.Add("usuario", user);
                 email.armarCorreo(user.Email, "Bienvenido/a 👋", "Hola, ya podes iniciar sesión con tu email y contraseña. Muchas gracias por registrarte!!!");
                 email.enviarEmail();
-                Response.Redirect("Default.aspx", false);
+                Response.Redirect("MiPerfil.aspx", false);
 
             }
             catch (Exception ex)

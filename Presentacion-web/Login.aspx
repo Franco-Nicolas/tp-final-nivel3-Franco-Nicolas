@@ -16,7 +16,10 @@
             <div class="card">
                 <div class="card-body">
                     <asp:TextBox runat="server" ID="txtEmail" TextMode="Email" CssClass="form-control my-3 py-2" placeholder="Email" />
+                    <asp:RequiredFieldValidator ErrorMessage="Debes ingresar un email." ControlToValidate="txtEmail" Display="Dynamic" ForeColor="Red" runat="server" />
+                    <asp:RegularExpressionValidator ErrorMessage="El formato de email es incorrecto. Por favor ingrese uno valido" ControlToValidate="txtEmail" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" Display="Dynamic" ForeColor="Red" runat="server" />
                     <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control my-3 py-2" placeholder="Contraseña" />
+                    <asp:RequiredFieldValidator ErrorMessage="Debes ingresar una contraseña." Display="Dynamic" ForeColor="Red" ControlToValidate="txtPassword" runat="server" />
                 </div>
                 <div class="d-flex justify-content-center mb-4">
                     <asp:Button Text="Ingresar" ID="btnLogin" CssClass="btn btn-primary" OnClick="btnLogin_Click" runat="server" />    

@@ -18,6 +18,10 @@ namespace Presentacion_web
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid)
+                return;
+
             Usuario usuario = new Usuario();
             UsuarioNegocio negocio = new UsuarioNegocio();
             try
@@ -27,12 +31,12 @@ namespace Presentacion_web
                 if (negocio.Login(usuario))
                 {
                     Session.Add("usuario", usuario);
-                    Response.Redirect("MiPerfil.aspx", false);
+                    Response.Redirect("Default.aspx", false);
                 }
                 else
                 {
-                    Session.Add("error", "user o pass incorrectos");
-                    Response.Redirect("Error.aspx");
+                    Session.Add("error", "El usuario o contraseña son incorrectos");
+                    Response.Redirect("Error.aspx", false);
                 }
                 
             }

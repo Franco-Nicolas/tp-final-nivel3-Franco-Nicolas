@@ -12,6 +12,22 @@ namespace Presentacion_web
         protected void Page_Load(object sender, EventArgs e)
         {
             lblError.Text = Session["error"].ToString();
+            if (lblError.Text == "El usuario o contraseña son incorrectos")
+            {
+                btnError.Text = "Intentar nuevamente";
+            }
+        }
+
+        protected void btnError_Click(object sender, EventArgs e)
+        {
+            if (lblError.Text == "El usuario o contraseña son incorrectos")
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }

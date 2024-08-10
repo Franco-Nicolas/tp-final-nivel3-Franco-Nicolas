@@ -40,6 +40,10 @@ namespace Presentacion_web
         {
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
+
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 Usuario user = (Usuario)Session["usuario"];
 
