@@ -40,6 +40,7 @@ namespace Presentacion_web
 
                 if (id != "" && !IsPostBack)
                 {
+                    Page.Title = "Modificar artículo";
                     btnAceptar.Text = "Modificar";
                     btnAceptar.CssClass = "btn btn-success";
                     ArticuloNegocio negocio = new ArticuloNegocio();

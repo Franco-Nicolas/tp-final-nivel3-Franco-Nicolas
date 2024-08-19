@@ -16,21 +16,46 @@ namespace Presentacion_web
         {
             try
             {
-                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
-                
                 ArticuloNegocio negocio = new ArticuloNegocio();
+                FavoritoNegocio favNegocio = new FavoritoNegocio();
+                Usuario usuario = (Usuario)Session["usuario"];
+
+                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
                 ArticuloSeleccionado = negocio.listar(id);
-                
+
                 if (!IsPostBack)
                 {
                     repRepetidorDetalle.DataSource = ArticuloSeleccionado;
                     repRepetidorDetalle.DataBind();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+        }
 
-                throw;
+        protected void btnFavoritos_Click(object sender, EventArgs e)
+        {
+            FavoritoNegocio negocio = new FavoritoNegocio();
+            Usuario usuario = (Usuario)Session["usuario"];
+            Articulo articulo = ArticuloSeleccionado[0];
+            
+            if (!negocio.existeFavorito(usuario, articulo))
+            {
+                negocio.agregarFavorito(usuario, articulo);
+                //Si se agregó, mostrar mensaje.
+                lblMensaje.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            else
+            {
+                //Sino mostrar otro tipo de mensaje.
+                lblMensaje.Text = "<i class='bi bi-exclamation-triangle-fill'></i> Ya has agregado este artículo antes. Puedes verlo  <a href=\"Favoritos.aspx\"> aqui. </a>";
+                lblMensaje.CssClass ="alert alert-warning";
+                lblMensaje.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
             }
         }
     }

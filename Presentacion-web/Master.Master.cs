@@ -24,7 +24,8 @@ namespace Presentacion_web
             if (Seguridad.sesionActiva(Session["usuario"]))
             {
                 Usuario usuario = (Usuario)Session["usuario"];
-                lblUser.Text = usuario.Email;
+                string user = (!(string.IsNullOrEmpty(usuario.Nombre) && string.IsNullOrEmpty(usuario.Apellido))) ? usuario.Nombre + " " + usuario.Apellido : usuario.Email;
+                lblUser.Text = user;
                 if (!string.IsNullOrEmpty(usuario.ImagenPerfil))
                 {
                     imgAvatar.ImageUrl = "~/Images/" + usuario.ImagenPerfil + "?v=" + DateTime.Now.Ticks.ToString();
