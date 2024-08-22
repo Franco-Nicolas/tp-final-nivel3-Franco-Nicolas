@@ -17,14 +17,14 @@ namespace Presentacion_web
             {
                 if (Seguridad.sesionActiva(Session["usuario"]))
                 {
-                    
+                    FavoritoNegocio negocio = new FavoritoNegocio();
+                    Usuario usuario = (Usuario)Session["usuario"];
+
+                    List<Articulo> listaFavoritos = negocio.listarFavoritos(usuario);
+                    Session.Add("listaFavoritos", listaFavoritos);
+
                     if (!IsPostBack)
                     {
-                        FavoritoNegocio negocio = new FavoritoNegocio();
-                        Usuario usuario = (Usuario)Session["usuario"];
-
-                        List<Articulo> listaFavoritos = negocio.listarFavoritos(usuario);
-
                         repFavoritos.DataSource = listaFavoritos;
                         repFavoritos.DataBind();
                     }
@@ -52,7 +52,10 @@ namespace Presentacion_web
 
                 negocio.eliminarFavorito(usuario, idArticulo);
 
-                Response.Redirect(Request.RawUrl, false);
+                repFavoritos.DataSource = negocio.listarFavoritos(usuario);
+                repFavoritos.DataBind();
+
+                //Response.Redirect(Request.RawUrl, false);
 
             }
             catch (Exception ex)

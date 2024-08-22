@@ -20,7 +20,7 @@ namespace Presentacion_web
 
         protected void btnError_Click(object sender, EventArgs e)
         {
-            if (lblError.Text == "El usuario o contraseña son incorrectos")
+            if (lblError.Text == "El usuario o contraseña son incorrectos" || lblError.Text == "Se requieren permisos de Administrador para acceder.")
             {
                 Response.Redirect("Login.aspx");
             }

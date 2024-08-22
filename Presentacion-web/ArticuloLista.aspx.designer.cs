@@ -69,6 +69,15 @@ namespace Presentacion_web
         protected global::System.Web.UI.WebControls.DropDownList ddlCriterio;
 
         /// <summary>
+        /// lblFiltroAvanzado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFiltroAvanzado;
+
+        /// <summary>
         /// txtFiltroAvanzado control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace Presentacion_web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
+
+        /// <summary>
+        /// btnLimpiarFiltros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiarFiltros;
 
         /// <summary>
         /// dgvArticulos control.

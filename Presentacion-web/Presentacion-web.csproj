@@ -69,8 +69,10 @@
   <ItemGroup>
     <Content Include="ArticuloDetallado.aspx" />
     <Content Include="ArticuloLista.aspx" />
+    <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Favoritos.aspx" />
     <Content Include="FormularioArticulos.aspx" />
     <Content Include="Global.asax" />

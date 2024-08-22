@@ -2,34 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .card-img-top {
-            object-fit: contain;
-            height: 300px;
-            width: 100%;
-            border-radius: 50px;
-            padding: 20px;
-        }
-
-        .card {
-            border-radius: 30px;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-        }
-
-        .card-body {
-            padding: 25px;
-            margin-top: -15px;
-        }
-
-        .btn-danger {
-            border-radius: 50px;
-            width: 120px;
-        }
-    </style>
+    <asp:ScriptManager runat="server" />
     <h2>Mis Favoritos</h2>
-        
+
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
         <%if (repFavoritos.Items.Count > 0)
-          {%>
+          {%>   
             <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
                 <asp:Repeater ID="repFavoritos" runat="server">
                     <ItemTemplate>
@@ -65,5 +44,6 @@
                 <p class="text-body-secondary">Agregalos haciendo clic en el botón de la página de producto.</p>
             </div>
         <%}%>
-    
+        </ContentTemplate>
+    </asp:UpdatePanel> 
 </asp:Content>

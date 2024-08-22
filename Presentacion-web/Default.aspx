@@ -4,33 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        body {
-            background-color: #f9f6f2;
-        }
-
-        .card-img-top {
-            object-fit: contain;
-            height: 300px;
-            width: 100%;
-            border-radius: 50px;
-            padding: 20px;
-        }
-
-        .card {
-            border-radius: 30px;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-        }
-
-        .card-body {
-            padding: 25px;
-            margin-top: -15px;
-        }
-
-        .btn-primary {
-            border-radius: 50px;
-            width: 120px;
-        }
-
         .btn-close {
             padding: .7em .5em;
         }
@@ -38,19 +11,20 @@
     <asp:ScriptManager runat="server" />
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="d-flex">
-                <asp:TextBox ID="txtBuscar" placeholder="Buscar..." CssClass="form-control" runat="server" />
-                <div class="btn-group">
-                    <asp:Button ID="btnLimpiar" runat="server" Text="" CssClass="btn btn-close" OnClick="btnLimpiar_Click" />
-                    <asp:Button ID="btnBuscar" runat="server" Text="🔎" CssClass="btn btn-outline-dark" OnClick="btnBuscar_Click" />
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="d-flex">
+                        <asp:TextBox ID="txtBuscar" placeholder="Buscar productos, marcas, categorías..." CssClass="form-control" runat="server" />
+                        <div class="btn-group">
+                            <asp:Button ID="btnLimpiar" runat="server" Text="" CssClass="btn btn-close" OnClick="btnLimpiar_Click" />
+                            <asp:Button ID="btnBuscar" runat="server" Text="🔎" CssClass="btn btn-outline-dark" OnClick="btnBuscar_Click" />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-            <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+            <%if (repRepetidor.Items.Count > 0)
+              {%>
+                <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
                 <asp:Repeater ID="repRepetidor" runat="server">
                     <ItemTemplate>
                         <div class="col-sm">
@@ -73,7 +47,19 @@
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-            </div>
+                </div>
+            <%}
+              else
+              {%>
+                <div class="text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-cart-x mb-3" viewBox="0 0 16 16">
+                        <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793z"/>
+                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                    <h5>No se encontraron productos.</h5>
+                    <p class="text-body-secondary">Por favor, intente de nuevo mas tarde.</p>
+                </div>
+            <%}%>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

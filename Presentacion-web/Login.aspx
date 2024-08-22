@@ -2,12 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .card {
-            border-radius: 30px;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-        }
-    </style>
     <div class="d-grid justify-content-center mb-2">
         <h3>Iniciar Sesión</h3>
     </div>
